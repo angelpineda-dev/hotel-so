@@ -8,8 +8,7 @@ import {
   faWifi,
   faWind,
 } from "@fortawesome/free-solid-svg-icons";
-
-import { ServiceCard } from "../components/ServiceCard";
+import { ServiceCard } from "./content/ServiceCard";
 
 const services = [
   {

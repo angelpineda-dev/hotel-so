@@ -8,21 +8,24 @@ import {
   faFacebook,
   faFacebookSquare,
 } from "@fortawesome/free-brands-svg-icons";
+import Ubication from "../content/Ubication";
 
 const Footer = () => {
   return (
     <footer>
       <div>
         <h2>Ubicación</h2>
-
-        <p>
-          Estamos ubicados a 50 metros de la Avenida Costera Miguel Alemán, en
-          el puerto de Acapulco, Guerrero.
-        </p>
-        <p>
-          La playa Hornos se encuentra cruzando la avenida, a menos de 100
-          metros.
-        </p>
+        <Ubication />
+        <ul>
+          <li>
+            Estamos ubicados a 50 metros de la Avenida Costera Miguel Alemán, en
+            el puerto de Acapulco, Guerrero.
+          </li>
+          <li>
+            La playa Hornos se encuentra cruzando la avenida, a menos de 100
+            metros.
+          </li>
+        </ul>
       </div>
 
       <div>

@@ -1,4 +1,4 @@
-import homeHero from "../assets/images/home/homeHero.png";
+import homeHero from "../../assets/images/home/homeHero.png";
 
 const HeroIntro = ({ title, text, textBtn, image }) => {
   return (

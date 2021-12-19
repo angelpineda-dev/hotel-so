@@ -2,7 +2,7 @@ import {
   faTicketAlt,
   faUmbrellaBeach,
 } from "@fortawesome/free-solid-svg-icons";
-import { ServiceCard } from "./ServiceCard";
+import { ServiceCard } from "./content/ServiceCard";
 
 const atractions = [
   {

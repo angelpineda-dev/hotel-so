@@ -1,5 +1,6 @@
 import Atractions from "../components/Atractions";
-import HeroIntro from "../components/HeroIntro";
+import HeroIntro from "../components/content/HeroIntro";
+
 import Services from "../components/Services";
 import Footer from "../components/ui/Footer";
 
