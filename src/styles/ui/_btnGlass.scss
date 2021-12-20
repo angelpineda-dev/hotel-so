@@ -1,0 +1,54 @@
+.btn {
+  background-color: transparent;
+  border: thin solid $white;
+  border-radius: 0.25rem;
+  color: $dark;
+  display: inline-block;
+  font-size: $font-size-default;
+  font-family: $font-text-content;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 1rem 2rem;
+  margin-top: 2rem;
+  max-width: 180px;
+  margin-top: 3rem;
+  width: 50%;
+}
+
+.btn__glass {
+  overflow: hidden;
+  position: relative;
+
+  &:hover {
+    border: thin solid $primary-white;
+    animation-play-state: paused;
+  }
+
+  &:hover::after {
+    transform: translateX(0);
+  }
+
+  &:hover::before {
+    background-color: transparent;
+  }
+
+  &::before,
+  &::after {
+    background-color: $white-50;
+    content: "";
+    position: absolute;
+    top: -2%;
+    left: 0;
+    filter: blur(2px);
+    width: 100%;
+    height: 100%;
+    transition: background-color 0.3s ease-in;
+    z-index: -1;
+  }
+
+  &::after {
+    background-color: $primary-white-75;
+    transform: translateX(-105%);
+    transition: transform 0.3s linear;
+  }
+}

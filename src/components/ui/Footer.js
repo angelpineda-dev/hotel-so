@@ -9,23 +9,8 @@ import Ubication from "../content/Ubication";
 
 const Footer = () => {
   return (
-    <footer>
-      <div>
-        <h2>Ubicación</h2>
-        <Ubication />
-        <ul>
-          <li>
-            Estamos ubicados a 50 metros de la Avenida Costera Miguel Alemán, en
-            el puerto de Acapulco, Guerrero.
-          </li>
-          <li>
-            La playa Hornos se encuentra cruzando la avenida, a menos de 100
-            metros.
-          </li>
-        </ul>
-      </div>
-
-      <div>
+    <footer className="footer">
+      <div className="footer__contact-info">
         <h2>Contactanos</h2>
         <div>
           <p>
@@ -46,7 +31,22 @@ const Footer = () => {
         </div>
       </div>
 
-      <div>
+      <div className="footer__ubication">
+        <h2>Ubicación</h2>
+        <Ubication />
+        <ul>
+          <li>
+            Estamos ubicados a 50 metros de la Avenida Costera Miguel Alemán, en
+            el puerto de Acapulco, Guerrero.
+          </li>
+          <li>
+            La playa Hornos se encuentra cruzando la avenida, a menos de 100
+            metros.
+          </li>
+        </ul>
+      </div>
+
+      <div className="footer__company">
         <p>
           <em>
             <FontAwesomeIcon icon={faCopyright} /> Suites Ordoñez 2022

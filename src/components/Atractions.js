@@ -21,8 +21,8 @@ const atractions = [
 
 const Atractions = () => {
   return (
-    <section>
-      <h2>Atracciones</h2>
+    <section className="cards">
+      <h2 className="cards__title">Atracciones</h2>
       {atractions.map(({ id, icon, title, desc }) => (
         <ServiceCard key={id} icon={icon} title={title} desc={desc} />
       ))}

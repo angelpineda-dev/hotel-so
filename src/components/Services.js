@@ -63,8 +63,8 @@ const services = [
 
 const Services = () => {
   return (
-    <section>
-      <h2>Servicios</h2>
+    <section className="cards">
+      <h2 className="cards__title">Servicios</h2>
 
       {services.map((service) => (
         <ServiceCard

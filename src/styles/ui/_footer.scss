@@ -1,0 +1,13 @@
+.footer {
+  background: linear-gradient(150deg, $primary-dark, $dark-70);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: $white;
+
+  div {
+    margin: 1rem auto;
+  }
+}

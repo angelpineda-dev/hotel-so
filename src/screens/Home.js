@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import Atractions from "../components/Atractions";
 import HeroIntro from "../components/content/HeroIntro";
 
@@ -10,7 +11,7 @@ const Home = () => {
     <>
       <Navbar />
       <HeroIntro />
-      <main>
+      <main className="beatch">
         <Services />
         <Atractions />
         <p>
@@ -19,7 +20,9 @@ const Home = () => {
             Somos un hotel 100% familiar, de 3 estrellas y un poco más.
           </em>{" "}
         </p>
-        <button>Reservar</button>
+        <Link to="/" className="btn btn__glass">
+          Reservar
+        </Link>
       </main>
       <Footer />
     </>
