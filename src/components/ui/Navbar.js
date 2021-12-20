@@ -6,9 +6,7 @@ const Navbar = () => {
   return (
     <article className="menu">
       <header className="menu__header">
-        <div>
-          <small className="menu__header-temp">32°C</small>
-        </div>
+        <small className="menu__header-temp">32°C</small>
         <NavLink to="/">
           <h2 className="menu__header-logo">Suites Ordoñez</h2>
         </NavLink>
