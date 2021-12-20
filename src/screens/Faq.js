@@ -2,6 +2,7 @@ import HeroIntro from "../components/content/HeroIntro";
 import faqHero from "../assets/images/faq/faqHero.png";
 import Footer from "../components/ui/Footer";
 import PriceTable from "../components/content/PriceTable";
+import Navbar from "../components/ui/Navbar";
 
 const rooms = [
   {
@@ -45,6 +46,7 @@ const rooms = [
 const Faq = () => {
   return (
     <>
+      <Navbar />
       <HeroIntro
         title={"Preguntas Frecuentas"}
         text={"Tarifas, terminos, condiciones y más."}

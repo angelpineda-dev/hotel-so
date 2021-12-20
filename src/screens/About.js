@@ -1,10 +1,12 @@
 import HeroIntro from "../components/content/HeroIntro";
 import aboutHero from "../assets/images/about/aboutHero.png";
 import Footer from "../components/ui/Footer";
+import Navbar from "../components/ui/Navbar";
 
 const About = () => {
   return (
     <>
+      <Navbar />
       <HeroIntro
         title={"Nosotros"}
         text={

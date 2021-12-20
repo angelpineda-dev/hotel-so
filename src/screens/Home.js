@@ -3,10 +3,12 @@ import HeroIntro from "../components/content/HeroIntro";
 
 import Services from "../components/Services";
 import Footer from "../components/ui/Footer";
+import Navbar from "../components/ui/Navbar";
 
 const Home = () => {
   return (
     <>
+      <Navbar />
       <HeroIntro />
       <main>
         <Services />
