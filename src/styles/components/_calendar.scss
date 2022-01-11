@@ -1,0 +1,127 @@
+.calendar {
+  border-radius: 5px;
+  margin: 0 auto;
+  height: 100vh;
+  position: relative;
+  width: 100%;
+
+  #{&}__header {
+    display: flex;
+    justify-content: space-evenly;
+    padding: 1rem;
+    border-bottom: thin solid $dark-20;
+
+    div {
+      border-bottom: thick solid transparent;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+      padding-bottom: 0.5rem;
+      width: 45%;
+
+      &.selected {
+        animation: border-bottom-animated 2s ease infinite;
+      }
+
+      @keyframes border-bottom-animated {
+        0%,
+        100% {
+          border-bottom: thick solid transparent;
+        }
+
+        50% {
+          border-bottom: thick solid $primary-white;
+        }
+      }
+
+      label {
+        font-family: sans-serif;
+        background-color: $white;
+        padding: 1rem;
+      }
+
+      input {
+        background-color: transparent;
+        border-radius: 5px;
+        padding: 1rem;
+        pointer-events: none;
+      }
+    }
+  }
+
+  #{&}__container {
+    display: flex;
+    border-radius: 10px;
+    box-shadow: 0 0 10px $dark-20;
+    flex-direction: column;
+    position: absolute;
+    top: 120px;
+    left: 2.5%;
+    width: 95%;
+
+    &-nav {
+      display: flex;
+      justify-content: space-evenly;
+      padding: 1rem;
+      width: 100%;
+
+      &-btn {
+        background-color: transparent;
+        border: thin solid $primary-white;
+        border-radius: 5px;
+        font-weight: bold;
+        padding: 5px;
+        transition: background-color 0.3s ease, color 0.3s ease;
+
+        &:hover {
+          background-color: $primary-white;
+          color: $white;
+        }
+      }
+    }
+
+    &-body {
+      display: flex;
+      justify-content: space-evenly;
+      padding: 2rem 0;
+      width: 100%;
+
+      &-month {
+        &-title {
+          text-align: center;
+        }
+
+        &-weekdays {
+          text-align: center;
+          list-style: none;
+          padding: 1rem 0;
+        }
+
+        &-days {
+          list-style: none;
+
+          li {
+            width: 25px;
+            height: 25px;
+
+            button {
+              border-radius: 50%;
+              cursor: pointer;
+              border: thin solid $dark-20;
+              background-color: $white;
+              height: 100%;
+              width: 100%;
+
+              &:hover {
+                background-color: $primary-50;
+                color: $white;
+                transform: scale(1.1);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

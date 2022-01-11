@@ -22,3 +22,51 @@ h3,
 h4 {
   font-family: $font-text-title;
 }
+
+.btn {
+  cursor: pointer;
+}
+
+.text-center {
+  text-align: center;
+  padding: 1rem;
+}
+
+.grid-r1-c7 {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-template-rows: 1;
+  place-items: center;
+}
+
+.grid-r6-c7 {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-template-rows: repeat(6, 1fr);
+  place-items: center;
+  gap: 6px 2px;
+}
+
+.grid-r6-c7[data-week-index="0"] li:first-child {
+  grid-column-start: 1;
+}
+
+.grid-r6-c7[data-week-index="1"] li:first-child {
+  grid-column-start: 2;
+}
+
+.grid-r6-c7[data-week-index="2"] li:first-child {
+  grid-column-start: 3;
+}
+.grid-r6-c7[data-week-index="3"] li:first-child {
+  grid-column-start: 4;
+}
+.grid-r6-c7[data-week-index="4"] li:first-child {
+  grid-column-start: 5;
+}
+.grid-r6-c7[data-week-index="5"] li:first-child {
+  grid-column-start: 6;
+}
+.grid-r6-c7[data-week-index="6"] li:first-child {
+  grid-column-start: 7;
+}

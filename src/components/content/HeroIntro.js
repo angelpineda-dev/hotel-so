@@ -30,6 +30,6 @@ export default HeroIntro;
 HeroIntro.defaultProps = {
   title: "Suites Ordoñez",
   text: "Sus mejores vacaciones, son con nosotros.",
-  textBtn: "Reservar",
+  textBtn: "",
   image: homeHero,
 };

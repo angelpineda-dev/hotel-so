@@ -10,11 +10,11 @@ const Home = () => {
   return (
     <>
       <Navbar />
-      <HeroIntro />
-      <main className="beatch">
+      <HeroIntro textBtn={"Reservar"} />
+      <main>
         <Services />
         <Atractions />
-        <p>
+        <p className="text-center">
           {" "}
           <em>
             Somos un hotel 100% familiar, de 3 estrellas y un poco más.
