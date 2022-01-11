@@ -1,5 +1,6 @@
-const CalendarMonth = ({ data, handleDate }) => {
+const CalendarMonth = ({ data, handleDate, currentDate }) => {
   let { month, monthName, year, numberDays, weekIndex } = data;
+
   return (
     <section className="calendar__container-body-month">
       <h3 className="calendar__container-body-month-title">{monthName}</h3>
@@ -16,11 +17,41 @@ const CalendarMonth = ({ data, handleDate }) => {
         className="calendar__container-body-month-days grid-r6-c7"
         data-week-index={weekIndex}
       >
-        {numberDays.map((day) => (
-          <li key={day}>
-            <button onClick={() => handleDate(year, month, day)}>{day}</button>
-          </li>
-        ))}
+        {numberDays.map((day) => {
+          if (month === currentDate.month && day === currentDate.today) {
+            return (
+              <li key={day}>
+                <button
+                  onClick={(e) => handleDate(e, year, month, day)}
+                  className="today"
+                >
+                  {day}
+                </button>
+              </li>
+            );
+          }
+
+          if (month === currentDate.month && day < currentDate.today) {
+            return (
+              <li key={`${month}-${day}`}>
+                <button
+                  onClick={(e) => handleDate(e, year, month, day)}
+                  className="day-disabled"
+                >
+                  {day}
+                </button>
+              </li>
+            );
+          }
+
+          return (
+            <li key={day}>
+              <button onClick={(e) => handleDate(e, year, month, day)}>
+                {day}
+              </button>
+            </li>
+          );
+        })}
       </ul>
     </section>
   );
