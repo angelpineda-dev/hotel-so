@@ -1,18 +1,34 @@
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import { useDatePicker } from "../../hooks/useDatepicker";
 import CalendarMonth from "./CalendarMonth";
 
 const Calendar = () => {
-  const { firstMonth, secondMonth, date, getInputDate, currentDate } =
-    useDatePicker();
+  const {
+    firstMonth,
+    secondMonth,
+    date,
+    getInputDate,
+    currentDate,
+    next,
+    prev,
+  } = useDatePicker();
   const [startDate, setStartDate] = useState(date);
-  const [endDate, setEndDate] = useState();
+  const [endDate, setEndDate] = useState("");
 
   const refInputStart = useRef();
   const refInputEnd = useRef();
+  const refBtnPrev = useRef();
   const refContainer = useRef();
   const refFirstMonth = useRef();
   const refSecondMonth = useRef();
+
+  useEffect(() => {
+    if (firstMonth.month <= currentDate.month) {
+      refBtnPrev.current.disabled = true;
+    } else {
+      refBtnPrev.current.disabled = false;
+    }
+  }, [firstMonth]);
 
   const handleFocus = (e) => {
     refContainer.current.classList.add("active");
@@ -53,7 +69,6 @@ const Calendar = () => {
 
       refInputEnd.current.classList.remove("selected");
       /* TODO: Mostrar rango de días seleccionados entre el dia de inicio y fin */
-      /* TODO: Desabilitar días de acuerdo a fechas de la base de datos */
     }
   };
 
@@ -88,9 +103,17 @@ const Calendar = () => {
       </header>
       <section className="calendar__container" ref={refContainer}>
         <nav className="calendar__container-nav">
-          <button className="calendar__container-nav-btn ">Prev</button>
+          <button
+            className="calendar__container-nav-btn "
+            ref={refBtnPrev}
+            onClick={prev}
+          >
+            Prev
+          </button>
           <h2 className="calendar__container-nav-title">{firstMonth.year}</h2>
-          <button className="calendar__container-nav-btn ">Next</button>
+          <button className="calendar__container-nav-btn " onClick={next}>
+            Next
+          </button>
         </nav>
         <article className="calendar__container-body">
           <CalendarMonth

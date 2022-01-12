@@ -60,6 +60,7 @@
     top: 120px;
     left: 2.5%;
     width: 95%;
+    max-width: 500px;
 
     &.active {
       display: flex;
@@ -93,6 +94,18 @@
         &:hover {
           background-color: $primary-white;
           color: $white;
+        }
+
+        &:disabled {
+          background-color: $white;
+          border: thin solid $gray;
+          color: $gray;
+
+          &:hover {
+            background-color: $white;
+            border: thin solid $gray;
+            color: $gray;
+          }
         }
       }
     }
@@ -135,13 +148,21 @@
                 transform: scale(1.1);
               }
 
-              &.today {
+              &.day-today {
                 color: $primary;
+                border: thin solid $primary;
                 font-weight: bold;
               }
 
               &.day-disabled {
                 background-color: $gray;
+                color: gray;
+                pointer-events: none;
+                border: none;
+              }
+
+              &.day-occupied {
+                background-color: rgb(255, 215, 129);
                 color: gray;
                 pointer-events: none;
                 border: none;

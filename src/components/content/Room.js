@@ -10,10 +10,8 @@ const Room = ({ id, props }) => {
         <section className="room-card__container-desc">
           <p>Precio: $ {price}.00</p>
           <p>Baños: {bathrooms}</p>
-          <p>
-            Camas: {beds}
-            <p>Capacidad: Hasta {maxPeople} personas.</p>
-          </p>
+          <p>Camas: {beds}</p>
+          <p>Capacidad: Hasta {maxPeople} personas.</p>
         </section>
         <section>
           <Link to={`/rooms/${id}`}>Reservar </Link>
