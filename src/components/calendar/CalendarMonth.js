@@ -1,4 +1,4 @@
-const CalendarMonth = ({ data, handleDate, currentDate }) => {
+const CalendarMonth = ({ data, handleDate, currentDate, refMonth }) => {
   let { month, monthName, year, numberDays, weekIndex } = data;
 
   return (
@@ -16,6 +16,7 @@ const CalendarMonth = ({ data, handleDate, currentDate }) => {
       <ul
         className="calendar__container-body-month-days grid-r6-c7"
         data-week-index={weekIndex}
+        ref={refMonth}
       >
         {numberDays.map((day) => {
           if (month === currentDate.month && day === currentDate.today) {

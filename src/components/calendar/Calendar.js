@@ -1,16 +1,18 @@
-import { useEffect, useRef, useState } from "react";
-import { useDatePicker } from "../../hooks/datepicker";
+import { useRef, useState } from "react";
+import { useDatePicker } from "../../hooks/useDatepicker";
 import CalendarMonth from "./CalendarMonth";
 
 const Calendar = () => {
   const { firstMonth, secondMonth, date, getInputDate, currentDate } =
     useDatePicker();
   const [startDate, setStartDate] = useState(date);
-  const [endDate, setEndDate] = useState("");
+  const [endDate, setEndDate] = useState();
 
   const refInputStart = useRef();
   const refInputEnd = useRef();
   const refContainer = useRef();
+  const refFirstMonth = useRef();
+  const refSecondMonth = useRef();
 
   const handleFocus = (e) => {
     refContainer.current.classList.add("active");
@@ -25,21 +27,41 @@ const Calendar = () => {
     let date = getInputDate(year, month, day);
 
     if (refInputStart.current.classList.contains("selected")) {
+      let arrayLi = refFirstMonth.current.childNodes;
+
+      arrayLi.forEach((li) => {
+        if (li.firstChild.classList.contains("start-day")) {
+          li.firstChild.classList.remove("start-day");
+        }
+      });
+
       e.target.classList.add("start-day");
       setStartDate(date);
       refInputStart.current.classList.remove("selected");
       refInputEnd.current.classList.add("selected");
     } else if (refInputEnd.current.classList.contains("selected")) {
+      let arrayLi = refSecondMonth.current.childNodes;
+
+      arrayLi.forEach((li) => {
+        if (li.firstChild.classList.contains("end-day")) {
+          li.firstChild.classList.remove("end-day");
+        }
+      });
+
       e.target.classList.add("end-day");
       setEndDate(date);
 
       refInputEnd.current.classList.remove("selected");
-      refContainer.current.classList.remove("active");
-
-      /* TODO: Remover clase del start-day & end-day dependiendo de la fecha seleccionada */
       /* TODO: Mostrar rango de días seleccionados entre el dia de inicio y fin */
       /* TODO: Desabilitar días de acuerdo a fechas de la base de datos */
     }
+  };
+
+  const handleCloseContainer = () => {
+    refInputStart.current.classList.remove("selected");
+    refInputEnd.current.classList.remove("selected");
+
+    refContainer.current.classList.remove("active");
   };
 
   return (
@@ -75,13 +97,16 @@ const Calendar = () => {
             data={firstMonth}
             handleDate={handleDate}
             currentDate={currentDate}
+            refMonth={refFirstMonth}
           />
           <CalendarMonth
             data={secondMonth}
             handleDate={handleDate}
             currentDate={currentDate}
+            refMonth={refSecondMonth}
           />
         </article>
+        <button onClick={handleCloseContainer}>Aceptar</button>
       </section>
     </article>
   );
